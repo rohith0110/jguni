@@ -115,5 +115,3 @@ http://localhost:3000
 * Scalable folder structure
 
 ---
-```
-```
