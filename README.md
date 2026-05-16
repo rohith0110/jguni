@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JG University Website Redesign
 
-## Getting Started
+A modern redesign of the official JG University website built with a fast, scalable frontend stack and improved UI/UX practices.
 
-First, run the development server:
+---
 
+## 🚀 Project Overview
+
+This project is a complete redesign of the JG University official website focused on:
+
+- Modern and responsive UI
+- Improved accessibility
+- Faster performance
+- Better user experience
+- Cleaner navigation and layout
+- Scalable frontend architecture
+
+---
+
+## 🛠 Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- pnpm
+
+---
+
+## 📦 Prerequisites
+
+Before running the project locally, make sure you have the following installed:
+
+- Node.js (Recommended: Latest LTS version)
+- pnpm package manager
+
+---
+
+## 📥 Installing pnpm
+
+If pnpm is not installed on your system, install it using one of the following commands.
+
+### Using npm
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install -g pnpm
+````
+
+### Using PowerShell (Windows)
+
+```powershell
+corepack enable
+corepack prepare pnpm@latest --activate
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Verify installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm -v
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚙️ Project Setup
 
-To learn more about Next.js, take a look at the following resources:
+Clone the repository and install dependencies.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/rohith0110/jguni.git
+cd jguni
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+pnpm install
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ▶️ Running the Development Server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Start the local development server using:
+
+```bash
+pnpm dev
+```
+
+The application will usually be available at:
+
+```txt
+http://localhost:3000
+```
+
+---
+
+## 📁 Project Structure
+
+```txt
+.
+├── app/              # Next.js app directory
+├── components/       # Reusable UI components
+├── public/           # Static assets
+├── styles/           # Global styles
+├── lib/              # Utility functions
+├── hooks/            # Custom React hooks
+└── README.md
+```
+
+---
+
+## ✨ Features
+
+* Fully responsive design
+* Modern landing page
+* Optimized performance
+* Reusable component architecture
+* Mobile-first UI
+* Clean typography and layout
+* Scalable folder structure
+
+---
