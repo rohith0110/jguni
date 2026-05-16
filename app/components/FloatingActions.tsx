@@ -13,7 +13,7 @@ export default function FloatingActions() {
   return (
     <>
       {/* Social rail — left edge */}
-      <div className="fixed left-0 top-1/2 z-40 hidden -translate-y-1/2 lg:block">
+      <div className="fixed left-0 top-5/6 z-40 hidden -translate-y-1/2 lg:block">
         <ul className="flex flex-col overflow-hidden rounded-r-xl border border-l-0 border-edge bg-surface/90 backdrop-blur">
           {socials.map((s) => (
             <li key={s.label}>
@@ -31,29 +31,6 @@ export default function FloatingActions() {
           ))}
         </ul>
       </div>
-
-      {/* Rotated CTA rail — right edge */}
-      <div className="fixed right-0 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-end gap-2 md:flex">
-        <a
-          href={cta.apply}
-          className="origin-right -rotate-90 translate-x-[calc(50%-1.1rem)] rounded-t-lg bg-brand px-5 py-2.5 text-sm font-semibold text-on-brand shadow-lg transition-[padding] hover:px-7"
-        >
-          Apply Now
-        </a>
-        <a
-          href={cta.enquire}
-          className="origin-right -rotate-90 translate-x-[calc(50%-1.1rem)] rounded-t-lg bg-gold-bright px-5 py-2.5 text-sm font-semibold text-[#221615] shadow-lg transition-[padding] hover:px-7"
-        >
-          Enquire Now
-        </a>
-        <a
-          href={cta.assessment}
-          className="origin-right -rotate-90 translate-x-[calc(50%-1.1rem)] rounded-t-lg border border-edge-strong bg-surface px-5 py-2.5 text-sm font-semibold text-ink shadow-lg transition-[padding] hover:px-7"
-        >
-          Free Psychometric Test
-        </a>
-      </div>
-
       {/* Floating call button */}
       <a
         href={cta.call}

@@ -42,39 +42,21 @@ export default function Hero() {
             fill
             priority={i === 0}
             sizes="100vw"
-            className={`object-cover transition-opacity duration-[1200ms] ease-in-out ${
-              i === current ? "opacity-100" : "opacity-0"
-            }`}
+            className={`object-cover transition-opacity duration-1200 ease-in-out ${i === current ? "opacity-100" : "opacity-0"
+              }`}
           />
         ))}
 
         {/* legibility wash */}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,8,7,0.55)_0%,rgba(20,8,7,0.35)_38%,rgba(20,8,7,0.82)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,8,7,0.55)_50%,rgba(20,8,7,0.50)_75%,rgba(20,8,7,1)_100%)]" />
 
         {/* Prev / Next arrows */}
-        <button
-          onClick={prev}
-          aria-label="Previous slide"
-          className="absolute left-4 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition hover:bg-black/55 sm:left-6 sm:h-13 sm:w-13"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-        </button>
-        <button
-          onClick={next}
-          aria-label="Next slide"
-          className="absolute right-4 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition hover:bg-black/55 sm:right-6 sm:h-13 sm:w-13"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M9 18l6-6-6-6" />
-          </svg>
-        </button>
+
 
         <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-5 pb-20 pt-36 sm:px-8 sm:pb-28">
           <div className="flex items-center gap-4">
             <span className="h-px w-14 bg-white/50" />
-            <span className="text-[0.72rem] font-bold uppercase tracking-[0.28em] text-white/70">
+            <span className="text-[0.72rem] font-bold uppercase tracking-[0.28em] text-white">
               Established 1965 · UGC-Approved · Ahmedabad
             </span>
           </div>
@@ -126,11 +108,10 @@ export default function Hero() {
                   key={i}
                   onClick={() => setCurrent(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    i === current
-                      ? "w-8 bg-white"
-                      : "w-1.5 bg-white/35 hover:bg-white/60"
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === current
+                    ? "w-8 bg-white"
+                    : "w-1.5 bg-white/35 hover:bg-white/60"
+                    }`}
                 />
               ))}
             </div>
