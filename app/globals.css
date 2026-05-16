@@ -1,26 +1,232 @@
 @import "tailwindcss";
 
+/* Class-based dark mode (Tailwind v4 custom variant) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ *
+ *  JG University — brand palette taken from the official logo:
+ *  crimson red (#97101E / gradient #730D01→#F22400) + gold (#DAA939),
+ *  warm ink on warm paper. Built for an institution, not a SaaS.
+ * ------------------------------------------------------------------ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #fbf7f1;
+  --surface: #ffffff;
+  --surface-2: #f4ece1;
+  --ink: #221615;
+  --muted: #5f5249;
+  --faint: #8a7c70;
+  --brand: #97101e;
+  --brand-strong: #730d06;
+  --brand-ink: #8a0f1a;
+  --brand-soft: #f7e3e2;
+  --gold: #9a6b14;
+  --gold-bright: #c8902a;
+  --gold-soft: #f6e8cb;
+  --border: rgba(34, 22, 21, 0.13);
+  --border-strong: rgba(34, 22, 21, 0.26);
+  --ring: rgba(151, 16, 30, 0.5);
+  --shadow: 26px 30px 60px -28px rgba(67, 23, 20, 0.32);
+  --grid-line: rgba(34, 22, 21, 0.05);
+  --on-brand: #ffffff;
+}
+
+.dark {
+  --paper: #160d0c;
+  --surface: #211514;
+  --surface-2: #2a1917;
+  --ink: #f4ebe5;
+  --muted: #c5b0a8;
+  --faint: #93817a;
+  --brand: #e24a3e;
+  --brand-strong: #c0291f;
+  --brand-ink: #f1897f;
+  --brand-soft: #371817;
+  --gold: #e6b85c;
+  --gold-bright: #f2cc78;
+  --gold-soft: #33240f;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --ring: rgba(226, 74, 62, 0.55);
+  --shadow: 26px 30px 70px -30px rgba(0, 0, 0, 0.75);
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --on-brand: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-soft: var(--gold-soft);
+  --color-edge: var(--border);
+  --color-edge-strong: var(--border-strong);
+  --color-on-brand: var(--on-brand);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1.1rem;
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-marquee-slow: marquee 60s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--brand);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 540;
+    letter-spacing: -0.018em;
+    line-height: 1.06;
+  }
+
+  /* keep section headings clear of the fixed navbar on anchor jumps */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 2px;
+    background: currentColor;
+  }
+
+  /* Faint academic ruling */
+  .ruled {
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-weight: 650;
+    font-size: 0.95rem;
+    line-height: 1;
+    padding: 1rem 1.55rem;
+    border-radius: 0.7rem;
+    transition:
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn-primary {
+    background: var(--brand);
+    color: var(--on-brand);
+  }
+  .btn-primary:hover {
+    background: var(--brand-strong);
+  }
+  .dark .btn-primary:hover {
+    background: #ef5a4d;
+  }
+  .btn-ghost {
+    border: 1.5px solid var(--border-strong);
+    color: var(--ink);
+  }
+  .btn-ghost:hover {
+    border-color: var(--brand);
+    color: var(--brand-ink);
+  }
+
+  /* ---- Reveal: VISIBLE BY DEFAULT. Animation is enhancement only,
+         applied client-side via [data-reveal]; it can never hide
+         content if JS / the observer fails. ---- */
+  [data-reveal="armed"] {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  [data-reveal="shown"] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-marquee,
+  [class*="animate-marquee"] {
+    animation: none !important;
+  }
 }
